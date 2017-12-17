@@ -213,6 +213,28 @@ namespace GitManager
                 bBranchSource.DataSource = getBranches();
                 bBranchSource.ResetBindings(true);
                 dgvBranches.ClearSelection();
+                
+                chklRepositoryBranches.ClearSelected();
+                chklRepositoryBranches.Items.Clear();
+
+                List<QuickBranchList> qBranchList = buildRepositoryBranchList(repository);
+
+                if (qBranchList.Count > 0)
+                {
+                    chklRepositoryBranches.Visible = true;
+                    chklRepositoryBranches.Items.AddRange(qBranchList.ToArray<QuickBranchList>());
+                    chklRepositoryBranches.DisplayMember = "BranchName";
+                    chklRepositoryBranches.ValueMember = "BranchGuid";
+
+                    for (int i = 1; i < chklRepositoryBranches.Items.Count; i++)
+                    {
+                        chklRepositoryBranches.SetItemChecked(i, true);
+                    }
+                }
+                else
+                {
+                    chklRepositoryBranches.Visible = false;
+                }
 
                 loadBranchMergeFromBranch_DataSet();
             }
@@ -447,14 +469,14 @@ namespace GitManager
 
             saveSettings();
             btnBranchClear_Click(null, null);
-            dgvBranches.DataSource = settingsXml.BranchList;
+            bBranchSource.DataSource = getBranches();
+            bBranchSource.ResetBindings(true);
         }
 
         private string saveBranch()
         {
             GitConfigs.Branch recordObj;
             bool newRecord = false;
-            GitConfigs.Branch branch = settingsXml.BranchList.Find(x => x.EntityGuid == dgvBranches.SelectedRows[0].Cells["BranchGuid"].Value.ToString());
 
             if (settingsXml.BranchList.Count == 0)
             {
@@ -473,6 +495,7 @@ namespace GitManager
 
             recordObj.EntityName = txtBranchName.Text;
             recordObj.UndoAnyChanges = chkBranchUndoAnyChanges.Checked;
+            recordObj.PullFirst = chkBranchPullFirst.Checked;
             recordObj.Active = chkBranchActive.Checked;
 
             if (cbBranchMergeFromBranch.SelectedIndex != -1)
@@ -501,7 +524,7 @@ namespace GitManager
             dtBranches.Columns.Add("Name", typeof(string));
             dtBranches.Columns.Add("Guid", typeof(string));
 
-            if (dtBranches.Rows.Count > 0 || dgvProjects.SelectedRows.Count > 0)
+            if (dgvRepositories.SelectedRows.Count > 0 || dgvProjects.SelectedRows.Count > 0)
             {
                 if (dgvRepositories.SelectedRows.Count > 0)
                 {
@@ -626,6 +649,9 @@ namespace GitManager
             chkRepositoryPerformPruneAtEnd.Checked = true;
             chkRepositoryActive.Checked = true;
 
+            chklRepositoryBranches.Visible = false;
+            chklRepositoryBranches.Items.Clear();
+
             dgvRepositories.ClearSelection();
         }
 
@@ -644,6 +670,8 @@ namespace GitManager
                 branchList = settingsXml.BranchList;
             }
 
+            branchList = branchList.GetRange(0, branchList.Count());
+
             if (dgvBranches.SelectedRows.Count > 0)
             {
                 GitConfigs.Branch branch = settingsXml.BranchList.Find(x => x.EntityGuid == dgvBranches.SelectedRows[0].Cells["BranchGuid"].Value.ToString());
@@ -658,6 +686,24 @@ namespace GitManager
             bBranceMergeSource.DataSource = branchList;
             cbBranchMergeFromBranch.DataSource = bBranceMergeSource;
             bBranceMergeSource.ResetBindings(true);
+        }
+
+        private List<QuickBranchList> buildRepositoryBranchList(GitConfigs.Repository repository)
+        {
+            List<QuickBranchList> qBranchList = new List<QuickBranchList>();
+
+            foreach (GitConfigs.RepositoryBranchOrder item in repository.repositoryBranchOrderList)
+            {
+                GitConfigs.Branch branch = settingsXml.BranchList.Find(branchItem => branchItem.EntityGuid == item.BranchGuid);
+                QuickBranchList newBranchItem = new QuickBranchList();
+
+                newBranchItem.BranchGuid = item.BranchGuid;
+                newBranchItem.BranchName = branch.EntityName;
+
+                qBranchList.Add(newBranchItem);
+            }
+
+            return qBranchList;
         }
     }
 }

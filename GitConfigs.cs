@@ -56,7 +56,11 @@ namespace GitManager
             public int OrderBy { get; set; } = -1;
             public string BranchGuid { get; set; } = String.Empty;
         }
+    }
 
-
+    public class QuickBranchList
+    {
+        public string BranchGuid { get; set; }  = string.Empty;
+        public string BranchName { get; set; } = string.Empty;
     }
 }
