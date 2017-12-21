@@ -705,5 +705,11 @@ namespace GitManager
 
             return qBranchList;
         }
+
+        private void btnGitCommands_Click(object sender, EventArgs e)
+        {
+            frm_GitCommands gitComs = new frm_GitCommands();
+            gitComs.ShowDialog(this);
+        }
     }
 }

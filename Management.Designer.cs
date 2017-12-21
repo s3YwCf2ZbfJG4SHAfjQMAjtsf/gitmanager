@@ -95,6 +95,7 @@
             this.btnRepositoryGuidGenerator = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnViewBashFile = new System.Windows.Forms.Button();
+            this.btnGitCommands = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.pnlProjects.SuspendLayout();
             this.pnlBranches.SuspendLayout();
@@ -787,11 +788,22 @@
             this.btnViewBashFile.UseVisualStyleBackColor = true;
             this.btnViewBashFile.Click += new System.EventHandler(this.btnViewBashFile_Click);
             // 
+            // btnGitCommands
+            // 
+            this.btnGitCommands.Location = new System.Drawing.Point(1634, 207);
+            this.btnGitCommands.Name = "btnGitCommands";
+            this.btnGitCommands.Size = new System.Drawing.Size(295, 44);
+            this.btnGitCommands.TabIndex = 13;
+            this.btnGitCommands.Text = "Git Commands";
+            this.btnGitCommands.UseVisualStyleBackColor = true;
+            this.btnGitCommands.Click += new System.EventHandler(this.btnGitCommands_Click);
+            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2229, 1213);
+            this.Controls.Add(this.btnGitCommands);
             this.Controls.Add(this.btnViewBashFile);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.pnlRepositories);
@@ -890,6 +902,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Repository;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchGuid;
+        private System.Windows.Forms.Button btnGitCommands;
     }
 }
 
