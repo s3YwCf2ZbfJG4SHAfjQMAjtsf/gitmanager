@@ -226,7 +226,7 @@ namespace GitManager
                     chklRepositoryBranches.DisplayMember = "BranchName";
                     chklRepositoryBranches.ValueMember = "BranchGuid";
 
-                    for (int i = 1; i < chklRepositoryBranches.Items.Count; i++)
+                    for (int i = 0; i < chklRepositoryBranches.Items.Count; i++)
                     {
                         chklRepositoryBranches.SetItemChecked(i, true);
                     }

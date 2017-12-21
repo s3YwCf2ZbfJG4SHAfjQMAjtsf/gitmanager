@@ -363,9 +363,9 @@
             this.rbBranchAppliesTo.Controls.Add(this.rdBranchAppliesToAllRepositoriesAllProjects);
             this.rbBranchAppliesTo.Controls.Add(this.rdBranchAppliesToSpecificRepositories);
             this.rbBranchAppliesTo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbBranchAppliesTo.Location = new System.Drawing.Point(474, 241);
+            this.rbBranchAppliesTo.Location = new System.Drawing.Point(474, 243);
             this.rbBranchAppliesTo.Name = "rbBranchAppliesTo";
-            this.rbBranchAppliesTo.Size = new System.Drawing.Size(1463, 237);
+            this.rbBranchAppliesTo.Size = new System.Drawing.Size(1463, 235);
             this.rbBranchAppliesTo.TabIndex = 31;
             this.rbBranchAppliesTo.TabStop = false;
             this.rbBranchAppliesTo.Text = "Applies To";
@@ -373,7 +373,7 @@
             // rdBranchAppliesToClearRepositoryBranches
             // 
             this.rdBranchAppliesToClearRepositoryBranches.AutoSize = true;
-            this.rdBranchAppliesToClearRepositoryBranches.Location = new System.Drawing.Point(352, 104);
+            this.rdBranchAppliesToClearRepositoryBranches.Location = new System.Drawing.Point(352, 135);
             this.rdBranchAppliesToClearRepositoryBranches.Name = "rdBranchAppliesToClearRepositoryBranches";
             this.rdBranchAppliesToClearRepositoryBranches.Size = new System.Drawing.Size(296, 29);
             this.rdBranchAppliesToClearRepositoryBranches.TabIndex = 32;
@@ -384,7 +384,7 @@
             // rdBranchAppliesToAllRepositoriesInCurrentProject
             // 
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.AutoSize = true;
-            this.rdBranchAppliesToAllRepositoriesInCurrentProject.Location = new System.Drawing.Point(352, 52);
+            this.rdBranchAppliesToAllRepositoriesInCurrentProject.Location = new System.Drawing.Point(352, 83);
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Name = "rdBranchAppliesToAllRepositoriesInCurrentProject";
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Size = new System.Drawing.Size(366, 29);
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.TabIndex = 31;
@@ -395,7 +395,7 @@
             // rdBranchEditMode
             // 
             this.rdBranchEditMode.AutoSize = true;
-            this.rdBranchEditMode.Location = new System.Drawing.Point(192, 0);
+            this.rdBranchEditMode.Location = new System.Drawing.Point(192, 31);
             this.rdBranchEditMode.Name = "rdBranchEditMode";
             this.rdBranchEditMode.Size = new System.Drawing.Size(140, 29);
             this.rdBranchEditMode.TabIndex = 26;
@@ -407,16 +407,16 @@
             // chklBranchesAppliesToSpecificRepositories
             // 
             this.chklBranchesAppliesToSpecificRepositories.FormattingEnabled = true;
-            this.chklBranchesAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 35);
+            this.chklBranchesAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 61);
             this.chklBranchesAppliesToSpecificRepositories.Name = "chklBranchesAppliesToSpecificRepositories";
-            this.chklBranchesAppliesToSpecificRepositories.Size = new System.Drawing.Size(507, 212);
+            this.chklBranchesAppliesToSpecificRepositories.Size = new System.Drawing.Size(507, 186);
             this.chklBranchesAppliesToSpecificRepositories.TabIndex = 30;
             this.chklBranchesAppliesToSpecificRepositories.Visible = false;
             // 
             // rdBranchAppliesToAllRepositoriesAllProjects
             // 
             this.rdBranchAppliesToAllRepositoriesAllProjects.AutoSize = true;
-            this.rdBranchAppliesToAllRepositoriesAllProjects.Location = new System.Drawing.Point(352, 0);
+            this.rdBranchAppliesToAllRepositoriesAllProjects.Location = new System.Drawing.Point(352, 31);
             this.rdBranchAppliesToAllRepositoriesAllProjects.Name = "rdBranchAppliesToAllRepositoriesAllProjects";
             this.rdBranchAppliesToAllRepositoriesAllProjects.Size = new System.Drawing.Size(330, 29);
             this.rdBranchAppliesToAllRepositoriesAllProjects.TabIndex = 28;
@@ -428,7 +428,7 @@
             // rdBranchAppliesToSpecificRepositories
             // 
             this.rdBranchAppliesToSpecificRepositories.AutoSize = true;
-            this.rdBranchAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 0);
+            this.rdBranchAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 30);
             this.rdBranchAppliesToSpecificRepositories.Name = "rdBranchAppliesToSpecificRepositories";
             this.rdBranchAppliesToSpecificRepositories.Size = new System.Drawing.Size(245, 29);
             this.rdBranchAppliesToSpecificRepositories.TabIndex = 29;
