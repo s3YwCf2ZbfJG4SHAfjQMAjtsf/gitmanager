@@ -23,6 +23,7 @@ namespace GitManager
         private BindingSource bProjectSource = new BindingSource();
         private BindingSource bRepositorySource = new BindingSource();
         private BindingSource bBranchSource = new BindingSource();
+        private BindingSource bGitCommandsSource = new BindingSource();
 
         public Management()
         {
@@ -49,6 +50,11 @@ namespace GitManager
 
             dgvBranches.DataSource = bBranchSource;
             dgvBranches.ClearSelection();
+
+            bGitCommandsSource.DataSource = settingsXml.GitCommandList;
+
+            dgvGitCommands.DataSource = bGitCommandsSource;
+            dgvGitCommands.ClearSelection();
 
             pnlRepositories.Enabled = false;
             btnBuildBashFile.Enabled = false;
@@ -704,12 +710,6 @@ namespace GitManager
             }
 
             return qBranchList;
-        }
-
-        private void btnGitCommands_Click(object sender, EventArgs e)
-        {
-            frm_GitCommands gitComs = new frm_GitCommands();
-            gitComs.ShowDialog(this);
-        }
+        }        
     }
 }

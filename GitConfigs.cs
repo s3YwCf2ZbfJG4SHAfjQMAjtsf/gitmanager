@@ -10,19 +10,21 @@ namespace GitManager
     public class GitConfigs
     {
         [Serializable]
-        public class GitCommand
-        {
-            public string CommandName { get; set; } = String.Empty;
-            public string CommandCode { get; set; } = String.Empty;
-            public string CommandValue { get; set; } = String.Empty;
-        }
-
-        [Serializable]
         public class GitInformation
         {
             public List<Project> ProjectList { get; set; } = new List<Project>();
             public List<Branch> BranchList { get; set; } = new List<Branch>();
             public List<GitCommand> GitCommandList { get; set; } = new List<GitCommand>();
+        }
+
+        [Serializable]
+        public class GitCommand
+        {
+            public string EntityName { get; set; } = String.Empty;
+            public string EntityGuid { get; set; } = String.Empty;
+            public string EntityCode { get; set; } = String.Empty;
+            public string EntityValue { get; set; } = String.Empty;
+            public bool Active { get; set; } = true;
         }
 
         [Serializable]

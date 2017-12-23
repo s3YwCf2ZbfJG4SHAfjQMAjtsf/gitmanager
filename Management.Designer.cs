@@ -95,7 +95,25 @@
             this.btnRepositoryGuidGenerator = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnViewBashFile = new System.Windows.Forms.Button();
-            this.btnGitCommands = new System.Windows.Forms.Button();
+            this.lblGitCommands = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtGitCommandCode = new System.Windows.Forms.TextBox();
+            this.lblGitCommandCode = new System.Windows.Forms.Label();
+            this.btnGitCommandsClear = new System.Windows.Forms.Button();
+            this.chkGitCommandActive = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblGitCommandValue = new System.Windows.Forms.Label();
+            this.btnGitCommandsSave = new System.Windows.Forms.Button();
+            this.txtGitCommandName = new System.Windows.Forms.TextBox();
+            this.lblGitCommandName = new System.Windows.Forms.Label();
+            this.lblGitCommandsAddEdit = new System.Windows.Forms.Label();
+            this.btnGitCommandsGenerateGuid = new System.Windows.Forms.Button();
+            this.lblGitCommandGuid = new System.Windows.Forms.Label();
+            this.dgvGitCommands = new System.Windows.Forms.DataGridView();
+            this.txtGitCommandGuid = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntityCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.pnlProjects.SuspendLayout();
             this.pnlBranches.SuspendLayout();
@@ -103,13 +121,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBranches)).BeginInit();
             this.pnlRepositories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRepositories)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGitCommands)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(1431, 109);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(295, 44);
+            this.btnSave.Size = new System.Drawing.Size(188, 44);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -179,6 +199,7 @@
             // 
             // pnlProjects
             // 
+            this.pnlProjects.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlProjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlProjects.Controls.Add(this.btnProjectClear);
             this.pnlProjects.Controls.Add(this.chkProjectActive);
@@ -282,6 +303,7 @@
             // 
             // pnlBranches
             // 
+            this.pnlBranches.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlBranches.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBranches.Controls.Add(this.chkBranchActive);
             this.pnlBranches.Controls.Add(this.lblBranchMergeFrom);
@@ -551,9 +573,9 @@
             // 
             // btnBuildBashFile
             // 
-            this.btnBuildBashFile.Location = new System.Drawing.Point(1834, 44);
+            this.btnBuildBashFile.Location = new System.Drawing.Point(1635, 44);
             this.btnBuildBashFile.Name = "btnBuildBashFile";
-            this.btnBuildBashFile.Size = new System.Drawing.Size(295, 46);
+            this.btnBuildBashFile.Size = new System.Drawing.Size(256, 46);
             this.btnBuildBashFile.TabIndex = 7;
             this.btnBuildBashFile.Text = "Build Bash File";
             this.btnBuildBashFile.UseVisualStyleBackColor = true;
@@ -579,6 +601,7 @@
             // 
             // pnlRepositories
             // 
+            this.pnlRepositories.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlRepositories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlRepositories.Controls.Add(this.lblRepositoryBranches);
             this.pnlRepositories.Controls.Add(this.chklRepositoryBranches);
@@ -772,7 +795,7 @@
             // 
             this.btnView.Location = new System.Drawing.Point(1431, 46);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(295, 44);
+            this.btnView.Size = new System.Drawing.Size(188, 44);
             this.btnView.TabIndex = 11;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
@@ -780,30 +803,201 @@
             // 
             // btnViewBashFile
             // 
-            this.btnViewBashFile.Location = new System.Drawing.Point(1834, 109);
+            this.btnViewBashFile.Location = new System.Drawing.Point(1635, 109);
             this.btnViewBashFile.Name = "btnViewBashFile";
-            this.btnViewBashFile.Size = new System.Drawing.Size(295, 44);
+            this.btnViewBashFile.Size = new System.Drawing.Size(256, 44);
             this.btnViewBashFile.TabIndex = 12;
             this.btnViewBashFile.Text = "View Bash File";
             this.btnViewBashFile.UseVisualStyleBackColor = true;
             this.btnViewBashFile.Click += new System.EventHandler(this.btnViewBashFile_Click);
             // 
-            // btnGitCommands
+            // lblGitCommands
             // 
-            this.btnGitCommands.Location = new System.Drawing.Point(1634, 207);
-            this.btnGitCommands.Name = "btnGitCommands";
-            this.btnGitCommands.Size = new System.Drawing.Size(295, 44);
-            this.btnGitCommands.TabIndex = 13;
-            this.btnGitCommands.Text = "Git Commands";
-            this.btnGitCommands.UseVisualStyleBackColor = true;
-            this.btnGitCommands.Click += new System.EventHandler(this.btnGitCommands_Click);
+            this.lblGitCommands.AutoSize = true;
+            this.lblGitCommands.Location = new System.Drawing.Point(26, 1221);
+            this.lblGitCommands.Name = "lblGitCommands";
+            this.lblGitCommands.Size = new System.Drawing.Size(153, 25);
+            this.lblGitCommands.TabIndex = 13;
+            this.lblGitCommands.Text = "Git Commands";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtGitCommandCode);
+            this.panel1.Controls.Add(this.lblGitCommandCode);
+            this.panel1.Controls.Add(this.btnGitCommandsClear);
+            this.panel1.Controls.Add(this.chkGitCommandActive);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.lblGitCommandValue);
+            this.panel1.Controls.Add(this.btnGitCommandsSave);
+            this.panel1.Controls.Add(this.txtGitCommandName);
+            this.panel1.Controls.Add(this.lblGitCommandName);
+            this.panel1.Controls.Add(this.lblGitCommandsAddEdit);
+            this.panel1.Controls.Add(this.btnGitCommandsGenerateGuid);
+            this.panel1.Controls.Add(this.lblGitCommandGuid);
+            this.panel1.Controls.Add(this.dgvGitCommands);
+            this.panel1.Controls.Add(this.txtGitCommandGuid);
+            this.panel1.Location = new System.Drawing.Point(31, 1261);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1352, 323);
+            this.panel1.TabIndex = 14;
+            // 
+            // txtGitCommandCode
+            // 
+            this.txtGitCommandCode.Location = new System.Drawing.Point(656, 107);
+            this.txtGitCommandCode.Name = "txtGitCommandCode";
+            this.txtGitCommandCode.Size = new System.Drawing.Size(204, 31);
+            this.txtGitCommandCode.TabIndex = 41;
+            // 
+            // lblGitCommandCode
+            // 
+            this.lblGitCommandCode.AutoSize = true;
+            this.lblGitCommandCode.Location = new System.Drawing.Point(474, 104);
+            this.lblGitCommandCode.Name = "lblGitCommandCode";
+            this.lblGitCommandCode.Size = new System.Drawing.Size(63, 25);
+            this.lblGitCommandCode.TabIndex = 40;
+            this.lblGitCommandCode.Text = "Code";
+            // 
+            // btnGitCommandsClear
+            // 
+            this.btnGitCommandsClear.Location = new System.Drawing.Point(1140, 137);
+            this.btnGitCommandsClear.Name = "btnGitCommandsClear";
+            this.btnGitCommandsClear.Size = new System.Drawing.Size(80, 31);
+            this.btnGitCommandsClear.TabIndex = 39;
+            this.btnGitCommandsClear.Text = "Clear";
+            this.btnGitCommandsClear.UseVisualStyleBackColor = true;
+            // 
+            // chkGitCommandActive
+            // 
+            this.chkGitCommandActive.AutoSize = true;
+            this.chkGitCommandActive.Location = new System.Drawing.Point(869, 66);
+            this.chkGitCommandActive.Name = "chkGitCommandActive";
+            this.chkGitCommandActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkGitCommandActive.Size = new System.Drawing.Size(103, 29);
+            this.chkGitCommandActive.TabIndex = 37;
+            this.chkGitCommandActive.Text = "Active";
+            this.chkGitCommandActive.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(654, 188);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(463, 125);
+            this.textBox1.TabIndex = 11;
+            // 
+            // lblGitCommandValue
+            // 
+            this.lblGitCommandValue.AutoSize = true;
+            this.lblGitCommandValue.Location = new System.Drawing.Point(474, 182);
+            this.lblGitCommandValue.Name = "lblGitCommandValue";
+            this.lblGitCommandValue.Size = new System.Drawing.Size(142, 25);
+            this.lblGitCommandValue.TabIndex = 10;
+            this.lblGitCommandValue.Text = "Git Command";
+            // 
+            // btnGitCommandsSave
+            // 
+            this.btnGitCommandsSave.Location = new System.Drawing.Point(1235, 137);
+            this.btnGitCommandsSave.Name = "btnGitCommandsSave";
+            this.btnGitCommandsSave.Size = new System.Drawing.Size(97, 31);
+            this.btnGitCommandsSave.TabIndex = 9;
+            this.btnGitCommandsSave.Text = "Save";
+            this.btnGitCommandsSave.UseVisualStyleBackColor = true;
+            // 
+            // txtGitCommandName
+            // 
+            this.txtGitCommandName.Location = new System.Drawing.Point(654, 66);
+            this.txtGitCommandName.Name = "txtGitCommandName";
+            this.txtGitCommandName.Size = new System.Drawing.Size(204, 31);
+            this.txtGitCommandName.TabIndex = 8;
+            // 
+            // lblGitCommandName
+            // 
+            this.lblGitCommandName.AutoSize = true;
+            this.lblGitCommandName.Location = new System.Drawing.Point(474, 63);
+            this.lblGitCommandName.Name = "lblGitCommandName";
+            this.lblGitCommandName.Size = new System.Drawing.Size(68, 25);
+            this.lblGitCommandName.TabIndex = 7;
+            this.lblGitCommandName.Text = "Name";
+            // 
+            // lblGitCommandsAddEdit
+            // 
+            this.lblGitCommandsAddEdit.AutoSize = true;
+            this.lblGitCommandsAddEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitCommandsAddEdit.Location = new System.Drawing.Point(472, 16);
+            this.lblGitCommandsAddEdit.Name = "lblGitCommandsAddEdit";
+            this.lblGitCommandsAddEdit.Size = new System.Drawing.Size(139, 37);
+            this.lblGitCommandsAddEdit.TabIndex = 6;
+            this.lblGitCommandsAddEdit.Text = "Add/Edit";
+            // 
+            // btnGitCommandsGenerateGuid
+            // 
+            this.btnGitCommandsGenerateGuid.Location = new System.Drawing.Point(1140, 80);
+            this.btnGitCommandsGenerateGuid.Name = "btnGitCommandsGenerateGuid";
+            this.btnGitCommandsGenerateGuid.Size = new System.Drawing.Size(192, 31);
+            this.btnGitCommandsGenerateGuid.TabIndex = 5;
+            this.btnGitCommandsGenerateGuid.Text = "Generate Guid";
+            this.btnGitCommandsGenerateGuid.UseVisualStyleBackColor = true;
+            // 
+            // lblGitCommandGuid
+            // 
+            this.lblGitCommandGuid.AutoSize = true;
+            this.lblGitCommandGuid.Location = new System.Drawing.Point(474, 142);
+            this.lblGitCommandGuid.Name = "lblGitCommandGuid";
+            this.lblGitCommandGuid.Size = new System.Drawing.Size(57, 25);
+            this.lblGitCommandGuid.TabIndex = 4;
+            this.lblGitCommandGuid.Text = "Guid";
+            // 
+            // dgvGitCommands
+            // 
+            this.dgvGitCommands.AllowUserToAddRows = false;
+            this.dgvGitCommands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGitCommands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.EntityCode,
+            this.dataGridViewTextBoxColumn2});
+            this.dgvGitCommands.Location = new System.Drawing.Point(19, 16);
+            this.dgvGitCommands.MultiSelect = false;
+            this.dgvGitCommands.Name = "dgvGitCommands";
+            this.dgvGitCommands.RowTemplate.Height = 33;
+            this.dgvGitCommands.Size = new System.Drawing.Size(418, 300);
+            this.dgvGitCommands.TabIndex = 1;
+            // 
+            // txtGitCommandGuid
+            // 
+            this.txtGitCommandGuid.Location = new System.Drawing.Point(656, 146);
+            this.txtGitCommandGuid.Name = "txtGitCommandGuid";
+            this.txtGitCommandGuid.Size = new System.Drawing.Size(463, 31);
+            this.txtGitCommandGuid.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "EntityName";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // EntityCode
+            // 
+            this.EntityCode.HeaderText = "Code";
+            this.EntityCode.Name = "EntityCode";
+            this.EntityCode.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "EntityGuid";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Guid";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2229, 1213);
-            this.Controls.Add(this.btnGitCommands);
+            this.ClientSize = new System.Drawing.Size(2012, 1596);
+            this.Controls.Add(this.lblGitCommands);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnViewBashFile);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.pnlRepositories);
@@ -815,6 +1009,8 @@
             this.Controls.Add(this.pnlProjects);
             this.Controls.Add(this.btnSave);
             this.Name = "Management";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Git Bash Management";
             this.Load += new System.EventHandler(this.Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).EndInit();
@@ -828,6 +1024,9 @@
             this.pnlRepositories.ResumeLayout(false);
             this.pnlRepositories.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRepositories)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGitCommands)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -902,7 +1101,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Repository;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchGuid;
-        private System.Windows.Forms.Button btnGitCommands;
+        private System.Windows.Forms.Label lblGitCommands;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGitCommandsClear;
+        private System.Windows.Forms.CheckBox chkGitCommandActive;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblGitCommandValue;
+        private System.Windows.Forms.Button btnGitCommandsSave;
+        private System.Windows.Forms.TextBox txtGitCommandName;
+        private System.Windows.Forms.Label lblGitCommandName;
+        private System.Windows.Forms.Label lblGitCommandsAddEdit;
+        private System.Windows.Forms.Button btnGitCommandsGenerateGuid;
+        private System.Windows.Forms.Label lblGitCommandGuid;
+        private System.Windows.Forms.DataGridView dgvGitCommands;
+        private System.Windows.Forms.TextBox txtGitCommandGuid;
+        private System.Windows.Forms.TextBox txtGitCommandCode;
+        private System.Windows.Forms.Label lblGitCommandCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EntityCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }
 
