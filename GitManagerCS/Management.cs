@@ -710,6 +710,99 @@ namespace GitManager
             }
 
             return qBranchList;
-        }        
-    }
+        }
+
+        private void btnGitCommandsGenerateGuid_Click(object sender, EventArgs e)
+        {
+            txtGitCommandGuid.Text = Guid.NewGuid().ToString();
+        }
+
+        private void btnGitCommandsClear_Click(object sender, EventArgs e)
+        {
+            txtGitCommandCode.Text = String.Empty;
+            txtGitCommandGuid.Text = String.Empty;
+            txtGitCommandName.Text = String.Empty;
+            txtGitCommandValue.Text = String.Empty;
+            chkGitCommandActive.Checked = false;
+
+            dgvGitCommands.ClearSelection();
+        }
+
+        private void btnGitCommandsSave_Click(object sender, EventArgs e)
+        {
+            GitConfigs.GitCommand recordObj;
+            bool newRecord = false;
+
+            if (settingsXml.GitCommandList.Count > 0 && txtGitCommandGuid.Text == String.Empty)
+            {
+                List<GitConfigs.GitCommand> gitCommandFound = settingsXml.GitCommandList.FindAll(x => x.EntityCode == txtGitCommandCode.Text || x.EntityName == txtGitCommandName.Text);
+                if (gitCommandFound.Count > 1)
+                {
+                    MessageBox.Show("There are duplicate records with that Code and Name");
+                    return;
+                }
+
+                if (gitCommandFound.Count == 1)
+                {
+                    txtGitCommandGuid.Text = gitCommandFound[0].EntityGuid;
+                }
+            }
+
+            if (settingsXml.GitCommandList.Count == 0 || txtGitCommandGuid.Text == String.Empty)
+            {
+                newRecord = true;
+                recordObj = new GitConfigs.GitCommand();
+            }
+            else
+            {
+                recordObj = settingsXml.GitCommandList.Find(x => x.EntityGuid == txtGitCommandGuid.Text);
+                if (recordObj == null)
+                {
+                    newRecord = true;
+                    recordObj = new GitConfigs.GitCommand();
+                }
+            }
+
+            recordObj.EntityCode = txtGitCommandCode.Text;
+            recordObj.EntityName = txtGitCommandName.Text;
+            recordObj.EntityValue = txtGitCommandValue.Text;
+            recordObj.Active = chkGitCommandActive.Checked;
+
+            if (newRecord)
+            {
+                if (txtGitCommandGuid.Text == String.Empty)
+                {
+                    btnGitCommandsGenerateGuid_Click(null, null);
+                }
+
+                recordObj.EntityGuid = txtGitCommandGuid.Text;
+                settingsXml.GitCommandList.Add(recordObj);
+            }
+
+            saveSettings();
+            btnGitCommandsClear_Click(null, null);
+            bGitCommandsSource.ResetBindings(true);
+        }
+
+        private void dgvGitCommands_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvGitCommands.SelectedRows.Count > 0)
+            {
+                GitConfigs.GitCommand gitCommand = settingsXml.GitCommandList.Find(x => x.EntityGuid == dgvGitCommands.SelectedRows[0].Cells["GitCommandGuid"].Value.ToString());
+
+                txtGitCommandGuid.Text = gitCommand.EntityGuid;
+                txtGitCommandName.Text = gitCommand.EntityName;
+                txtGitCommandCode.Text = gitCommand.EntityCode;
+                txtGitCommandValue.Text = gitCommand.EntityValue;
+                chkGitCommandActive.Checked = gitCommand.Active;
+
+                txtProjectGuid.Enabled = false;
+                pnlRepositories.Enabled = true;
+                btnBuildBashFile.Enabled = true;
+                btnViewBashFile.Enabled = true;
+
+                bGitCommandsSource.ResetBindings(true);                
+            }
+        }
+    }    
 }

@@ -101,7 +101,7 @@
             this.lblGitCommandCode = new System.Windows.Forms.Label();
             this.btnGitCommandsClear = new System.Windows.Forms.Button();
             this.chkGitCommandActive = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGitCommandValue = new System.Windows.Forms.TextBox();
             this.lblGitCommandValue = new System.Windows.Forms.Label();
             this.btnGitCommandsSave = new System.Windows.Forms.Button();
             this.txtGitCommandName = new System.Windows.Forms.TextBox();
@@ -111,9 +111,11 @@
             this.lblGitCommandGuid = new System.Windows.Forms.Label();
             this.dgvGitCommands = new System.Windows.Forms.DataGridView();
             this.txtGitCommandGuid = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntityCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitCommandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitCommandValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitCommandActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitCommandCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitCommandGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.pnlProjects.SuspendLayout();
             this.pnlBranches.SuspendLayout();
@@ -186,7 +188,7 @@
             this.txtProjectGuid.Location = new System.Drawing.Point(654, 112);
             this.txtProjectGuid.Name = "txtProjectGuid";
             this.txtProjectGuid.Size = new System.Drawing.Size(463, 31);
-            this.txtProjectGuid.TabIndex = 3;
+            this.txtProjectGuid.TabIndex = 4;
             // 
             // lblProjectGuid
             // 
@@ -223,7 +225,7 @@
             this.btnProjectClear.Location = new System.Drawing.Point(1140, 137);
             this.btnProjectClear.Name = "btnProjectClear";
             this.btnProjectClear.Size = new System.Drawing.Size(80, 31);
-            this.btnProjectClear.TabIndex = 39;
+            this.btnProjectClear.TabIndex = 7;
             this.btnProjectClear.Text = "Clear";
             this.btnProjectClear.UseVisualStyleBackColor = true;
             this.btnProjectClear.Click += new System.EventHandler(this.btnProjectClear_Click);
@@ -235,7 +237,7 @@
             this.chkProjectActive.Name = "chkProjectActive";
             this.chkProjectActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkProjectActive.Size = new System.Drawing.Size(103, 29);
-            this.chkProjectActive.TabIndex = 37;
+            this.chkProjectActive.TabIndex = 3;
             this.chkProjectActive.Text = "Active";
             this.chkProjectActive.UseVisualStyleBackColor = true;
             // 
@@ -244,7 +246,7 @@
             this.txtProjectOutputFileName.Location = new System.Drawing.Point(654, 160);
             this.txtProjectOutputFileName.Name = "txtProjectOutputFileName";
             this.txtProjectOutputFileName.Size = new System.Drawing.Size(463, 31);
-            this.txtProjectOutputFileName.TabIndex = 11;
+            this.txtProjectOutputFileName.TabIndex = 5;
             // 
             // lblProjectOutputFileName
             // 
@@ -260,7 +262,7 @@
             this.btnSaveProject.Location = new System.Drawing.Point(1235, 137);
             this.btnSaveProject.Name = "btnSaveProject";
             this.btnSaveProject.Size = new System.Drawing.Size(97, 31);
-            this.btnSaveProject.TabIndex = 9;
+            this.btnSaveProject.TabIndex = 6;
             this.btnSaveProject.Text = "Save";
             this.btnSaveProject.UseVisualStyleBackColor = true;
             this.btnSaveProject.Click += new System.EventHandler(this.btnSaveProject_Click);
@@ -270,7 +272,7 @@
             this.txtProjectName.Location = new System.Drawing.Point(654, 66);
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(204, 31);
-            this.txtProjectName.TabIndex = 8;
+            this.txtProjectName.TabIndex = 2;
             // 
             // lblProjectName
             // 
@@ -296,7 +298,7 @@
             this.btnProjectGuidGenerator.Location = new System.Drawing.Point(1140, 80);
             this.btnProjectGuidGenerator.Name = "btnProjectGuidGenerator";
             this.btnProjectGuidGenerator.Size = new System.Drawing.Size(192, 31);
-            this.btnProjectGuidGenerator.TabIndex = 5;
+            this.btnProjectGuidGenerator.TabIndex = 9;
             this.btnProjectGuidGenerator.Text = "Generate Guid";
             this.btnProjectGuidGenerator.UseVisualStyleBackColor = true;
             this.btnProjectGuidGenerator.Click += new System.EventHandler(this.btnProjectGuidGenerator_Click);
@@ -332,7 +334,7 @@
             this.chkBranchActive.Name = "chkBranchActive";
             this.chkBranchActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkBranchActive.Size = new System.Drawing.Size(103, 29);
-            this.chkBranchActive.TabIndex = 36;
+            this.chkBranchActive.TabIndex = 33;
             this.chkBranchActive.Text = "Active";
             this.chkBranchActive.UseVisualStyleBackColor = true;
             // 
@@ -349,6 +351,7 @@
             // 
             this.cbBranchMergeFromBranch.DisplayMember = "EntityName";
             this.cbBranchMergeFromBranch.FormattingEnabled = true;
+            this.cbBranchMergeFromBranch.ItemHeight = 25;
             this.cbBranchMergeFromBranch.Location = new System.Drawing.Point(869, 184);
             this.cbBranchMergeFromBranch.Name = "cbBranchMergeFromBranch";
             this.cbBranchMergeFromBranch.Size = new System.Drawing.Size(248, 33);
@@ -362,7 +365,7 @@
             this.chkBranchPullFirst.Name = "chkBranchPullFirst";
             this.chkBranchPullFirst.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkBranchPullFirst.Size = new System.Drawing.Size(128, 29);
-            this.chkBranchPullFirst.TabIndex = 33;
+            this.chkBranchPullFirst.TabIndex = 36;
             this.chkBranchPullFirst.Text = "Pull First";
             this.chkBranchPullFirst.UseVisualStyleBackColor = true;
             // 
@@ -373,7 +376,7 @@
             this.chkBranchUndoAnyChanges.Name = "chkBranchUndoAnyChanges";
             this.chkBranchUndoAnyChanges.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkBranchUndoAnyChanges.Size = new System.Drawing.Size(230, 29);
-            this.chkBranchUndoAnyChanges.TabIndex = 32;
+            this.chkBranchUndoAnyChanges.TabIndex = 34;
             this.chkBranchUndoAnyChanges.Text = "Undo Any Changes";
             this.chkBranchUndoAnyChanges.UseVisualStyleBackColor = true;
             // 
@@ -399,7 +402,7 @@
             this.rdBranchAppliesToClearRepositoryBranches.Location = new System.Drawing.Point(352, 135);
             this.rdBranchAppliesToClearRepositoryBranches.Name = "rdBranchAppliesToClearRepositoryBranches";
             this.rdBranchAppliesToClearRepositoryBranches.Size = new System.Drawing.Size(296, 29);
-            this.rdBranchAppliesToClearRepositoryBranches.TabIndex = 32;
+            this.rdBranchAppliesToClearRepositoryBranches.TabIndex = 41;
             this.rdBranchAppliesToClearRepositoryBranches.TabStop = true;
             this.rdBranchAppliesToClearRepositoryBranches.Text = "Clear from all Repositories";
             this.rdBranchAppliesToClearRepositoryBranches.UseVisualStyleBackColor = true;
@@ -410,7 +413,7 @@
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Location = new System.Drawing.Point(352, 83);
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Name = "rdBranchAppliesToAllRepositoriesInCurrentProject";
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Size = new System.Drawing.Size(366, 29);
-            this.rdBranchAppliesToAllRepositoriesInCurrentProject.TabIndex = 31;
+            this.rdBranchAppliesToAllRepositoriesInCurrentProject.TabIndex = 40;
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.TabStop = true;
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.Text = "All Repositories in Current Project";
             this.rdBranchAppliesToAllRepositoriesInCurrentProject.UseVisualStyleBackColor = true;
@@ -421,7 +424,7 @@
             this.rdBranchEditMode.Location = new System.Drawing.Point(192, 31);
             this.rdBranchEditMode.Name = "rdBranchEditMode";
             this.rdBranchEditMode.Size = new System.Drawing.Size(140, 29);
-            this.rdBranchEditMode.TabIndex = 26;
+            this.rdBranchEditMode.TabIndex = 38;
             this.rdBranchEditMode.TabStop = true;
             this.rdBranchEditMode.Text = "Edit Mode";
             this.rdBranchEditMode.UseVisualStyleBackColor = true;
@@ -433,7 +436,7 @@
             this.chklBranchesAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 61);
             this.chklBranchesAppliesToSpecificRepositories.Name = "chklBranchesAppliesToSpecificRepositories";
             this.chklBranchesAppliesToSpecificRepositories.Size = new System.Drawing.Size(507, 186);
-            this.chklBranchesAppliesToSpecificRepositories.TabIndex = 30;
+            this.chklBranchesAppliesToSpecificRepositories.TabIndex = 43;
             this.chklBranchesAppliesToSpecificRepositories.Visible = false;
             // 
             // rdBranchAppliesToAllRepositoriesAllProjects
@@ -442,7 +445,7 @@
             this.rdBranchAppliesToAllRepositoriesAllProjects.Location = new System.Drawing.Point(352, 31);
             this.rdBranchAppliesToAllRepositoriesAllProjects.Name = "rdBranchAppliesToAllRepositoriesAllProjects";
             this.rdBranchAppliesToAllRepositoriesAllProjects.Size = new System.Drawing.Size(330, 29);
-            this.rdBranchAppliesToAllRepositoriesAllProjects.TabIndex = 28;
+            this.rdBranchAppliesToAllRepositoriesAllProjects.TabIndex = 39;
             this.rdBranchAppliesToAllRepositoriesAllProjects.TabStop = true;
             this.rdBranchAppliesToAllRepositoriesAllProjects.Text = "All Repositories in All Projects";
             this.rdBranchAppliesToAllRepositoriesAllProjects.UseVisualStyleBackColor = true;
@@ -454,7 +457,7 @@
             this.rdBranchAppliesToSpecificRepositories.Location = new System.Drawing.Point(761, 30);
             this.rdBranchAppliesToSpecificRepositories.Name = "rdBranchAppliesToSpecificRepositories";
             this.rdBranchAppliesToSpecificRepositories.Size = new System.Drawing.Size(245, 29);
-            this.rdBranchAppliesToSpecificRepositories.TabIndex = 29;
+            this.rdBranchAppliesToSpecificRepositories.TabIndex = 42;
             this.rdBranchAppliesToSpecificRepositories.TabStop = true;
             this.rdBranchAppliesToSpecificRepositories.Text = "Specific Repositories";
             this.rdBranchAppliesToSpecificRepositories.UseVisualStyleBackColor = true;
@@ -465,7 +468,7 @@
             this.btnBranchClear.Location = new System.Drawing.Point(1705, 75);
             this.btnBranchClear.Name = "btnBranchClear";
             this.btnBranchClear.Size = new System.Drawing.Size(80, 31);
-            this.btnBranchClear.TabIndex = 24;
+            this.btnBranchClear.TabIndex = 45;
             this.btnBranchClear.Text = "Clear";
             this.btnBranchClear.UseVisualStyleBackColor = true;
             this.btnBranchClear.Click += new System.EventHandler(this.btnBranchClear_Click);
@@ -475,7 +478,7 @@
             this.btnSaveBranch.Location = new System.Drawing.Point(1821, 78);
             this.btnSaveBranch.Name = "btnSaveBranch";
             this.btnSaveBranch.Size = new System.Drawing.Size(76, 31);
-            this.btnSaveBranch.TabIndex = 23;
+            this.btnSaveBranch.TabIndex = 44;
             this.btnSaveBranch.Text = "Save";
             this.btnSaveBranch.UseVisualStyleBackColor = true;
             this.btnSaveBranch.Click += new System.EventHandler(this.btnSaveBranch_Click);
@@ -493,7 +496,7 @@
             this.dgvBranches.Name = "dgvBranches";
             this.dgvBranches.RowTemplate.Height = 33;
             this.dgvBranches.Size = new System.Drawing.Size(418, 465);
-            this.dgvBranches.TabIndex = 3;
+            this.dgvBranches.TabIndex = 30;
             this.dgvBranches.SelectionChanged += new System.EventHandler(this.dgvBranches_SelectionChanged);
             // 
             // Repository
@@ -524,7 +527,7 @@
             this.txtBranchName.Location = new System.Drawing.Point(654, 63);
             this.txtBranchName.Name = "txtBranchName";
             this.txtBranchName.Size = new System.Drawing.Size(204, 31);
-            this.txtBranchName.TabIndex = 22;
+            this.txtBranchName.TabIndex = 31;
             // 
             // lblAddBranch
             // 
@@ -550,7 +553,7 @@
             this.txtBranchGuid.Location = new System.Drawing.Point(654, 110);
             this.txtBranchGuid.Name = "txtBranchGuid";
             this.txtBranchGuid.Size = new System.Drawing.Size(463, 31);
-            this.txtBranchGuid.TabIndex = 17;
+            this.txtBranchGuid.TabIndex = 32;
             // 
             // lblBranchGuid
             // 
@@ -566,7 +569,7 @@
             this.btnBranchGenerateGuid.Location = new System.Drawing.Point(1705, 32);
             this.btnBranchGenerateGuid.Name = "btnBranchGenerateGuid";
             this.btnBranchGenerateGuid.Size = new System.Drawing.Size(192, 31);
-            this.btnBranchGenerateGuid.TabIndex = 19;
+            this.btnBranchGenerateGuid.TabIndex = 46;
             this.btnBranchGenerateGuid.Text = "Generate Guid";
             this.btnBranchGenerateGuid.UseVisualStyleBackColor = true;
             this.btnBranchGenerateGuid.Click += new System.EventHandler(this.btnBranchGenerateGuid_Click);
@@ -576,7 +579,7 @@
             this.btnBuildBashFile.Location = new System.Drawing.Point(1635, 44);
             this.btnBuildBashFile.Name = "btnBuildBashFile";
             this.btnBuildBashFile.Size = new System.Drawing.Size(256, 46);
-            this.btnBuildBashFile.TabIndex = 7;
+            this.btnBuildBashFile.TabIndex = 0;
             this.btnBuildBashFile.Text = "Build Bash File";
             this.btnBuildBashFile.UseVisualStyleBackColor = true;
             this.btnBuildBashFile.Click += new System.EventHandler(this.btnBuildBashFile_Click);
@@ -639,7 +642,7 @@
             this.chklRepositoryBranches.Name = "chklRepositoryBranches";
             this.chklRepositoryBranches.Size = new System.Drawing.Size(472, 238);
             this.chklRepositoryBranches.Sorted = true;
-            this.chklRepositoryBranches.TabIndex = 39;
+            this.chklRepositoryBranches.TabIndex = 16;
             this.chklRepositoryBranches.Visible = false;
             // 
             // btnRepositoryClear
@@ -647,7 +650,7 @@
             this.btnRepositoryClear.Location = new System.Drawing.Point(1705, 75);
             this.btnRepositoryClear.Name = "btnRepositoryClear";
             this.btnRepositoryClear.Size = new System.Drawing.Size(80, 31);
-            this.btnRepositoryClear.TabIndex = 38;
+            this.btnRepositoryClear.TabIndex = 18;
             this.btnRepositoryClear.Text = "Clear";
             this.btnRepositoryClear.UseVisualStyleBackColor = true;
             this.btnRepositoryClear.Click += new System.EventHandler(this.btnRepositoryClear_Click);
@@ -659,7 +662,7 @@
             this.chkRepositoryActive.Name = "chkRepositoryActive";
             this.chkRepositoryActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkRepositoryActive.Size = new System.Drawing.Size(103, 29);
-            this.chkRepositoryActive.TabIndex = 37;
+            this.chkRepositoryActive.TabIndex = 15;
             this.chkRepositoryActive.Text = "Active";
             this.chkRepositoryActive.UseVisualStyleBackColor = true;
             // 
@@ -679,7 +682,7 @@
             this.txtRepositoryFolderPath.Location = new System.Drawing.Point(654, 154);
             this.txtRepositoryFolderPath.Name = "txtRepositoryFolderPath";
             this.txtRepositoryFolderPath.Size = new System.Drawing.Size(463, 31);
-            this.txtRepositoryFolderPath.TabIndex = 18;
+            this.txtRepositoryFolderPath.TabIndex = 13;
             this.txtRepositoryFolderPath.TextChanged += new System.EventHandler(this.txtRepositoryFolderPath_TextChanged);
             // 
             // lblRepositoryFolderPath
@@ -696,7 +699,7 @@
             this.btnSaveRepository.Location = new System.Drawing.Point(1800, 75);
             this.btnSaveRepository.Name = "btnSaveRepository";
             this.btnSaveRepository.Size = new System.Drawing.Size(97, 31);
-            this.btnSaveRepository.TabIndex = 16;
+            this.btnSaveRepository.TabIndex = 17;
             this.btnSaveRepository.Text = "Save";
             this.btnSaveRepository.UseVisualStyleBackColor = true;
             this.btnSaveRepository.Click += new System.EventHandler(this.btnSaveRepository_Click);
@@ -714,7 +717,7 @@
             this.dgvRepositories.Name = "dgvRepositories";
             this.dgvRepositories.RowTemplate.Height = 33;
             this.dgvRepositories.Size = new System.Drawing.Size(418, 301);
-            this.dgvRepositories.TabIndex = 2;
+            this.dgvRepositories.TabIndex = 10;
             this.dgvRepositories.SelectionChanged += new System.EventHandler(this.dgvRepositories_SelectionChanged);
             // 
             // RepositoryName
@@ -744,7 +747,7 @@
             this.txtRepositoryName.Location = new System.Drawing.Point(656, 64);
             this.txtRepositoryName.Name = "txtRepositoryName";
             this.txtRepositoryName.Size = new System.Drawing.Size(204, 31);
-            this.txtRepositoryName.TabIndex = 15;
+            this.txtRepositoryName.TabIndex = 11;
             // 
             // lblAddRepository
             // 
@@ -770,7 +773,7 @@
             this.txtRepositoryGuid.Location = new System.Drawing.Point(654, 107);
             this.txtRepositoryGuid.Name = "txtRepositoryGuid";
             this.txtRepositoryGuid.Size = new System.Drawing.Size(463, 31);
-            this.txtRepositoryGuid.TabIndex = 10;
+            this.txtRepositoryGuid.TabIndex = 12;
             // 
             // lblRepositoryGuid
             // 
@@ -786,7 +789,7 @@
             this.btnRepositoryGuidGenerator.Location = new System.Drawing.Point(1705, 15);
             this.btnRepositoryGuidGenerator.Name = "btnRepositoryGuidGenerator";
             this.btnRepositoryGuidGenerator.Size = new System.Drawing.Size(192, 31);
-            this.btnRepositoryGuidGenerator.TabIndex = 12;
+            this.btnRepositoryGuidGenerator.TabIndex = 19;
             this.btnRepositoryGuidGenerator.Text = "Generate Guid";
             this.btnRepositoryGuidGenerator.UseVisualStyleBackColor = true;
             this.btnRepositoryGuidGenerator.Click += new System.EventHandler(this.btnRepositoryGuidGenerator_Click);
@@ -796,7 +799,7 @@
             this.btnView.Location = new System.Drawing.Point(1431, 46);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(188, 44);
-            this.btnView.TabIndex = 11;
+            this.btnView.TabIndex = 0;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
@@ -806,7 +809,7 @@
             this.btnViewBashFile.Location = new System.Drawing.Point(1635, 109);
             this.btnViewBashFile.Name = "btnViewBashFile";
             this.btnViewBashFile.Size = new System.Drawing.Size(256, 44);
-            this.btnViewBashFile.TabIndex = 12;
+            this.btnViewBashFile.TabIndex = 0;
             this.btnViewBashFile.Text = "View Bash File";
             this.btnViewBashFile.UseVisualStyleBackColor = true;
             this.btnViewBashFile.Click += new System.EventHandler(this.btnViewBashFile_Click);
@@ -828,7 +831,7 @@
             this.panel1.Controls.Add(this.lblGitCommandCode);
             this.panel1.Controls.Add(this.btnGitCommandsClear);
             this.panel1.Controls.Add(this.chkGitCommandActive);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtGitCommandValue);
             this.panel1.Controls.Add(this.lblGitCommandValue);
             this.panel1.Controls.Add(this.btnGitCommandsSave);
             this.panel1.Controls.Add(this.txtGitCommandName);
@@ -848,7 +851,7 @@
             this.txtGitCommandCode.Location = new System.Drawing.Point(656, 107);
             this.txtGitCommandCode.Name = "txtGitCommandCode";
             this.txtGitCommandCode.Size = new System.Drawing.Size(204, 31);
-            this.txtGitCommandCode.TabIndex = 41;
+            this.txtGitCommandCode.TabIndex = 42;
             // 
             // lblGitCommandCode
             // 
@@ -864,9 +867,10 @@
             this.btnGitCommandsClear.Location = new System.Drawing.Point(1140, 137);
             this.btnGitCommandsClear.Name = "btnGitCommandsClear";
             this.btnGitCommandsClear.Size = new System.Drawing.Size(80, 31);
-            this.btnGitCommandsClear.TabIndex = 39;
+            this.btnGitCommandsClear.TabIndex = 47;
             this.btnGitCommandsClear.Text = "Clear";
             this.btnGitCommandsClear.UseVisualStyleBackColor = true;
+            this.btnGitCommandsClear.Click += new System.EventHandler(this.btnGitCommandsClear_Click);
             // 
             // chkGitCommandActive
             // 
@@ -875,17 +879,17 @@
             this.chkGitCommandActive.Name = "chkGitCommandActive";
             this.chkGitCommandActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkGitCommandActive.Size = new System.Drawing.Size(103, 29);
-            this.chkGitCommandActive.TabIndex = 37;
+            this.chkGitCommandActive.TabIndex = 43;
             this.chkGitCommandActive.Text = "Active";
             this.chkGitCommandActive.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtGitCommandValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(654, 188);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(463, 125);
-            this.textBox1.TabIndex = 11;
+            this.txtGitCommandValue.Location = new System.Drawing.Point(654, 188);
+            this.txtGitCommandValue.Multiline = true;
+            this.txtGitCommandValue.Name = "txtGitCommandValue";
+            this.txtGitCommandValue.Size = new System.Drawing.Size(463, 125);
+            this.txtGitCommandValue.TabIndex = 45;
             // 
             // lblGitCommandValue
             // 
@@ -901,16 +905,17 @@
             this.btnGitCommandsSave.Location = new System.Drawing.Point(1235, 137);
             this.btnGitCommandsSave.Name = "btnGitCommandsSave";
             this.btnGitCommandsSave.Size = new System.Drawing.Size(97, 31);
-            this.btnGitCommandsSave.TabIndex = 9;
+            this.btnGitCommandsSave.TabIndex = 46;
             this.btnGitCommandsSave.Text = "Save";
             this.btnGitCommandsSave.UseVisualStyleBackColor = true;
+            this.btnGitCommandsSave.Click += new System.EventHandler(this.btnGitCommandsSave_Click);
             // 
             // txtGitCommandName
             // 
             this.txtGitCommandName.Location = new System.Drawing.Point(654, 66);
             this.txtGitCommandName.Name = "txtGitCommandName";
             this.txtGitCommandName.Size = new System.Drawing.Size(204, 31);
-            this.txtGitCommandName.TabIndex = 8;
+            this.txtGitCommandName.TabIndex = 41;
             // 
             // lblGitCommandName
             // 
@@ -936,9 +941,10 @@
             this.btnGitCommandsGenerateGuid.Location = new System.Drawing.Point(1140, 80);
             this.btnGitCommandsGenerateGuid.Name = "btnGitCommandsGenerateGuid";
             this.btnGitCommandsGenerateGuid.Size = new System.Drawing.Size(192, 31);
-            this.btnGitCommandsGenerateGuid.TabIndex = 5;
+            this.btnGitCommandsGenerateGuid.TabIndex = 48;
             this.btnGitCommandsGenerateGuid.Text = "Generate Guid";
             this.btnGitCommandsGenerateGuid.UseVisualStyleBackColor = true;
+            this.btnGitCommandsGenerateGuid.Click += new System.EventHandler(this.btnGitCommandsGenerateGuid_Click);
             // 
             // lblGitCommandGuid
             // 
@@ -954,42 +960,60 @@
             this.dgvGitCommands.AllowUserToAddRows = false;
             this.dgvGitCommands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGitCommands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.EntityCode,
-            this.dataGridViewTextBoxColumn2});
+            this.GitCommandName,
+            this.GitCommandValue,
+            this.GitCommandActive,
+            this.GitCommandCode,
+            this.GitCommandGuid});
             this.dgvGitCommands.Location = new System.Drawing.Point(19, 16);
             this.dgvGitCommands.MultiSelect = false;
             this.dgvGitCommands.Name = "dgvGitCommands";
             this.dgvGitCommands.RowTemplate.Height = 33;
             this.dgvGitCommands.Size = new System.Drawing.Size(418, 300);
-            this.dgvGitCommands.TabIndex = 1;
+            this.dgvGitCommands.TabIndex = 40;
+            this.dgvGitCommands.SelectionChanged += new System.EventHandler(this.dgvGitCommands_SelectionChanged);
             // 
             // txtGitCommandGuid
             // 
             this.txtGitCommandGuid.Location = new System.Drawing.Point(656, 146);
             this.txtGitCommandGuid.Name = "txtGitCommandGuid";
             this.txtGitCommandGuid.Size = new System.Drawing.Size(463, 31);
-            this.txtGitCommandGuid.TabIndex = 3;
+            this.txtGitCommandGuid.TabIndex = 44;
             // 
-            // dataGridViewTextBoxColumn1
+            // GitCommandName
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "EntityName";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            this.GitCommandName.DataPropertyName = "EntityName";
+            this.GitCommandName.HeaderText = "Name";
+            this.GitCommandName.Name = "GitCommandName";
+            this.GitCommandName.Width = 150;
             // 
-            // EntityCode
+            // GitCommandValue
             // 
-            this.EntityCode.HeaderText = "Code";
-            this.EntityCode.Name = "EntityCode";
-            this.EntityCode.Width = 150;
+            this.GitCommandValue.DataPropertyName = "EntityValue";
+            this.GitCommandValue.HeaderText = "EntityValue";
+            this.GitCommandValue.Name = "GitCommandValue";
+            this.GitCommandValue.Visible = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // GitCommandActive
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "EntityGuid";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Guid";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.GitCommandActive.DataPropertyName = "Active";
+            this.GitCommandActive.HeaderText = "Active";
+            this.GitCommandActive.Name = "GitCommandActive";
+            this.GitCommandActive.Visible = false;
+            // 
+            // GitCommandCode
+            // 
+            this.GitCommandCode.DataPropertyName = "EntityCode";
+            this.GitCommandCode.HeaderText = "Code";
+            this.GitCommandCode.Name = "GitCommandCode";
+            this.GitCommandCode.Width = 150;
+            // 
+            // GitCommandGuid
+            // 
+            this.GitCommandGuid.DataPropertyName = "EntityGuid";
+            this.GitCommandGuid.HeaderText = "Guid";
+            this.GitCommandGuid.Name = "GitCommandGuid";
+            this.GitCommandGuid.Visible = false;
             // 
             // Management
             // 
@@ -1105,7 +1129,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGitCommandsClear;
         private System.Windows.Forms.CheckBox chkGitCommandActive;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGitCommandValue;
         private System.Windows.Forms.Label lblGitCommandValue;
         private System.Windows.Forms.Button btnGitCommandsSave;
         private System.Windows.Forms.TextBox txtGitCommandName;
@@ -1117,9 +1141,11 @@
         private System.Windows.Forms.TextBox txtGitCommandGuid;
         private System.Windows.Forms.TextBox txtGitCommandCode;
         private System.Windows.Forms.Label lblGitCommandCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EntityCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GitCommandName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GitCommandValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GitCommandActive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GitCommandCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GitCommandGuid;
     }
 }
 
